@@ -40,7 +40,7 @@ Start project
 npm start
 ```
 
-### 1. Go to http://localhost:3000/ and select bank
+### 1. Go to http://localhost:5000/ and select bank
 
 <p align="center">
     <img align="center" src="./resources/_media/f_3_select_aspsp.png" width="200" />
@@ -71,4 +71,4 @@ npm start
   <img src="./resources/_media/f_6_aspsp_accs.jpg" width="200" />
 </p>
 
-### 5. You will be redirected to specified `REDIRECT_URI` in our case it is `http://localhost:3000/` where details, balances and transactions data will be returned from your bank account.
+### 5. You will be redirected to specified `REDIRECT_URI` `http://localhost:3000/` in our case it is a dashboard with users details, acount balances and transactions. Make sure client is running under the `REDIRECT_URI` in your browser.
