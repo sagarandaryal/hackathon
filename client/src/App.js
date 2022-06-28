@@ -1,4 +1,4 @@
-import { useGetDataQuery } from "./redux/bankAPI";
+import { useGetDataQuery } from "./redux/bankApi";
 
 const App = () => {
   const { data, error, isLoading } = useGetDataQuery();
