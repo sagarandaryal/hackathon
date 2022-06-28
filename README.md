@@ -7,7 +7,7 @@ This project is done using third party Nordigen Node example with Express.js API
 ---
 
 You'll need to get your `SECRET_ID` and `SECRET_KEY` from the [Nordigen's Open Banking Portal](https://ob.nordigen.com/).
-In **app.js** file provide the token as a parameter for `NordigenClient`.
+In **index.js** file provide the token as a parameter for `NordigenClient`.
 
 ```javascript
 // Pass secretId and secretKey to NordigenClient instance as a string or load from .env file
