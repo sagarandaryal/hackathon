@@ -16,7 +16,6 @@ export default class Barchart extends React.Component {
     this.state = { data: [] };
   }
   componentDidMount() {
-    console.log(transactions);
     this.getData();
   }
   getData = (page = "", size = 10, fromDate = "", toDate = "") => {
@@ -42,7 +41,6 @@ export default class Barchart extends React.Component {
     const metadata = transactions[0];
 
     var ar = metadata.transactions.transactions.booked[0];
-    console.log(ar);
 
     const minDate = new Date(
       Math.min(

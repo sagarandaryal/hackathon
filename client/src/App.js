@@ -14,10 +14,12 @@ const App = () => {
 
 export default App; */
 
-import "./App.css";
+import classes from "./App.module.css";
 //import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import BarChart from "./components/Barchart";
+import Piechart from "./components/Piechart";
+
 function App() {
   var xyValues = [
     {
@@ -189,8 +191,11 @@ function App() {
   ];
 
   return (
-    <div className="App">
-      <BarChart />
+    <div>
+      <div className={classes.barchart}>
+        <BarChart />
+      </div>
+      <Piechart />
     </div>
   );
 }
