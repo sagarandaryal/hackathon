@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import hbs from "hbs";
 import { randomUUID } from "crypto";
 import NordigenClient from "nordigen-node";
+// import fetch from "node-fetch";
 
 dotenv.config();
 
@@ -103,6 +104,20 @@ app.get("/results/", async (req, res) => {
       transactions: await account.getTransactions(),
     },
   ];
+  // the following code could be used to post the results into a firebase database to be retreived later
+  // node that npm install node-fetch would have to be run before using this
+  /*
+  fetch(
+    "https://hackathon-dashboard-a34e4-default-rtdb.europe-west1.firebasedatabase.app/dashboard.json",
+    {
+      method: "POST",
+      body: JSON.stringify(accountData),
+      headers: { "Content-Type": "application/json" },
+    }
+  )
+    .then((res) => res.json())
+    .then((json) => console.log(json));
+    */
 
   res.json(accountData);
 });
