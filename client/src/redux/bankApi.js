@@ -7,7 +7,7 @@ export const bankApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
   endpoints: (builder) => ({
     getData: builder.query({
-      query: (id) => `/results`,
+      query: () => `/results`,
     }),
   }),
 });
