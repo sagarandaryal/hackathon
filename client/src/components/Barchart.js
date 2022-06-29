@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect,useState } from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -10,19 +9,19 @@ import {
   Tooltip,
 } from "recharts";
 
-export default class Barchart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: [] };
-  }
-  componentDidMount() {
-    this.getData();
-  }
-  getData = (page = "", size = 10, fromDate = "", toDate = "") => {
-    document.getElementById("size").value = size;
-    document.getElementById("page").value = page;
+export default function Barchart (){
+const [data,setData]=useState();
+const arr={};
 
-    const data = {
+useEffect(() => {
+
+  getData(arr);
+});
+
+ const  getData = (arr) => {
+
+
+     arr = {
       metadata: {
         id: "36a061ac-124f-40f8-b0b0-211914ce6696",
         created: "2022-06-28T10:35:27.111001Z",
@@ -189,7 +188,7 @@ export default class Barchart extends React.Component {
       },
     };
 
-    var ar = data.transactions.transactions.booked;
+    var ar = arr.transactions.transactions.booked;
 
     const minDate = new Date(
       Math.min(
@@ -206,7 +205,7 @@ export default class Barchart extends React.Component {
         })
       )
     );
-
+  
     ar.forEach((item) => {
       item.transactionAmount.amount = Math.abs(item.transactionAmount.amount);
     });
@@ -221,30 +220,18 @@ export default class Barchart extends React.Component {
 
       return s.getTime() == maxDate.getTime();
     });
-
-    this.setState({ data: ar });
+return arr
   };
-  onSubmit = (e) => {
-    const page = document.getElementById("page").value;
-    const size = document.getElementById("size").value;
-    const fromDate = document.getElementById("fromDate").value;
-    const toDate = document.getElementById("toDate").value;
 
-    this.getData(page, size, fromDate, toDate);
-  };
-  render() {
-    const { data } = this.state;
+const objData=getData().transactions.transactions.booked;
+
     return (
       <div className="BarChart">
-        <input type="number" id="size" placeholder="pagesize" />
-        <input type="number" id="page" placeholder="page" />
-        <input type="date" id="fromDate" placeholder="from date" />
-        <input type="date" id="toDate" placeholder="to date" />
-        <button onClick={this.onSubmit}>Submit</button>
+     
 
         <ResponsiveContainer width="100%" aspect={2}>
           <BarChart
-            data={data}
+            data={objData}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
             <CartesianGrid stroke="#ccc" />
@@ -260,5 +247,5 @@ export default class Barchart extends React.Component {
         </ResponsiveContainer>
       </div>
     );
-  }
+  
 }
