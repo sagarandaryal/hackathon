@@ -1,11 +1,13 @@
 import { useGetDataQuery } from "./redux/bankApi";
 
 const App = () => {
-  const { data, error, isLoading } = useGetDataQuery();
+  const { data, error, isLoading, isSuccess } = useGetDataQuery();
   console.log(data);
   return (
     <div>
-      <h1>Welcome to Dashboard</h1>
+      {isLoading && <h2>Loading...</h2>}
+      {error && <h2>Something went wroung.</h2>}
+      {isSuccess && data && <h1>Welcome to Dashboard</h1>}
     </div>
   );
 };
