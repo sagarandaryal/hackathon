@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   ResponsiveContainer,
   BarChart,
@@ -20,24 +21,8 @@ export default class Barchart extends React.Component {
   getData = (page = "", size = 10, fromDate = "", toDate = "") => {
     document.getElementById("size").value = size;
     document.getElementById("page").value = page;
-    // fetch(
-    //   // "https://api.stackexchange.com/2.2/tags?pagesize=30&order=desc&sort=popular&site=stackoverflow"
-    //   "https://api.stackexchange.com/2.2/tags?" +
-    //     new URLSearchParams({
-    //       page: page,
-    //       order: "desc",
-    //       sort: "popular",
-    //       site: "stackoverflow",
-    //       pagesize: size,
-    //       fromdate: fromDate,
-    //       todate: toDate
-    //     })
-    // )
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //    // this.setState({ data: json.items });
-    //   });
-    const metadata = {
+
+    const data = {
       metadata: {
         id: "36a061ac-124f-40f8-b0b0-211914ce6696",
         created: "2022-06-28T10:35:27.111001Z",
@@ -204,7 +189,7 @@ export default class Barchart extends React.Component {
       },
     };
 
-    var ar = metadata.transactions.transactions.booked;
+    var ar = data.transactions.transactions.booked;
 
     const minDate = new Date(
       Math.min(
